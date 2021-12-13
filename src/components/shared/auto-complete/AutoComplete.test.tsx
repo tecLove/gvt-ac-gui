@@ -300,7 +300,7 @@ describe("should verify number of results shown", () => {
           fuseConfig={DefaultFuseConfig}
           resultObjectKey={"description"}
           options={options}
-          defaultSearchString={"using reactjs"}
+          defaultSearchString={"child"}
         ></AutoComplete>,
         container
       );
@@ -319,14 +319,11 @@ describe("should verify number of results shown", () => {
           fuseConfig={DefaultFuseConfig}
           resultObjectKey={"description"}
           options={options}
-          defaultSearchString={"using reactjs"}
+          defaultSearchString={"child"}
         ></AutoComplete>,
         container
       );
     });
-    expect(
-      container.querySelector("[data-testid='result-30']").textContent
-    ).toEqual(options[30].description);
-    expect(container.querySelector("[data-testid='result-31']")).toEqual(null);
+    expect(container.querySelector("[data-testid='result-7']")).toEqual(null);
   });
 });

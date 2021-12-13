@@ -93,11 +93,12 @@ const AutoComplete = ({
    * @param result
    */
   const handleOnClick = (result: any) => {
-    console.log("search text is", searchText);
-    setSearchText(result[resultObjectKey]);
+    setSearchText(() => {
+      return result[resultObjectKey];
+    });
+    if (onChange) onChange(result[resultObjectKey]);
     setSearchResults([]);
     setCursor(0);
-    if (onChange) onChange(searchText);
   };
 
   const handleSearchBtnClick = () => {
@@ -297,6 +298,7 @@ const AutoComplete = ({
                   src={closeIcon}
                   height="20px"
                   width="20px"
+                  style={{ cursor: "pointer" }}
                   onClick={() => {
                     setSearchText("");
                     if (onClear) onClear();
@@ -338,21 +340,5 @@ const AutoComplete = ({
     </>
   );
 };
-
-// export default AutoComplete;
-// const shouldUpdate = (
-//   prevProps: AutoCompleteProps,
-//   nextProps: AutoCompleteProps
-// ) => {
-//   if (
-//     prevProps.onTextChange !== nextProps.onTextChange ||
-//     prevProps.onFocusEvent !== nextProps.onFocusEvent ||
-//     prevProps.onChange !== nextProps.onChange ||
-//     prevProps.onClear !== nextProps.onClear
-//   ) {
-//     return false;
-//   }
-//   return true;
-// };
 
 export default React.memo(AutoComplete);

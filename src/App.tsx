@@ -50,7 +50,7 @@ const App = () => {
 
   useEffect(() => {
     if (value.length > 0)
-      fetch(EndPoints.queryResult, {
+      fetch(EndPoints.queryResult + `?data=${value}`, {
         method: "get",
       })
         .then((resp) => resp.json())
@@ -66,7 +66,10 @@ const App = () => {
    */
   const handleOnChange = useCallback((item: any) => {
     console.log("Selected item(s)", item);
-    if (typeof item === "object") setValue(item.description);
+    if (typeof item === "object") {
+      setValue(item.description);
+      return;
+    }
     setValue(item);
   }, []);
 
@@ -98,7 +101,7 @@ const App = () => {
                 inputDebounceTime={INPUT_DEBOUNCE_TIME}
                 fuseConfig={DefaultFuseConfig}
                 resultObjectKey={"description"}
-                defaultSearchString={"child development"}
+                defaultSearchString={""}
                 options={options}
                 onTextChange={handleOnTextChange}
                 onChange={handleOnChange}

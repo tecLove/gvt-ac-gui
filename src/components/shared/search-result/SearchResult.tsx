@@ -1,5 +1,6 @@
 import { date } from "../../../utils/util.service";
 import searchResultStyle from "./SearchResult.module.scss";
+import parse from "html-react-parser";
 
 const SearchResult = ({ result, searchText }: any) => {
   console.log("text is", searchText, result);
@@ -10,26 +11,15 @@ const SearchResult = ({ result, searchText }: any) => {
   };
 
   const getHighlightedText = (text: string, highlight: string) => {
-    debugger;
-    // Split on highlight term and include term into parts, ignore case
-    const parts = text?.split(new RegExp(`(${highlight})`, "gi"));
-    return (
-      <span>
-        {" "}
-        {parts.map((part, i) => (
-          <span
-            key={i}
-            style={
-              part.toLowerCase() === highlight.toLowerCase()
-                ? { fontWeight: "bold" }
-                : {}
-            }
-          >
-            {part}
-          </span>
-        ))}{" "}
-      </span>
-    );
+    let modifiedText = text;
+    let _highlights = highlight.split(" ");
+    _highlights.map((_highlight) => {
+      modifiedText = modifiedText.replaceAll(
+        new RegExp(`${_highlight}`, "gi"),
+        `<b>${_highlight}</b>`
+      );
+    });
+    return modifiedText;
   };
   return (
     <>
@@ -58,7 +48,9 @@ const SearchResult = ({ result, searchText }: any) => {
                 >
                   {date()}
                   {" - "}
-                  {getHighlightedText(item?.DocumentExcerpt?.Text, searchText)}
+                  {parse(
+                    getHighlightedText(item?.DocumentExcerpt?.Text, searchText)
+                  )}
                 </div>
                 <div
                   className={searchResultStyle.link}
