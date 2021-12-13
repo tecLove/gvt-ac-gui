@@ -1,9 +1,4 @@
 .app {
-  // display: flex;
-  // height: 100%;
-  // justify-content: center;
-  // width: 100%;
-  // margin: 60px;
 }
 .acContainer {
   height: 120px;
@@ -16,12 +11,6 @@
   margin: auto;
   position: relative;
   top: 30%;
-}
-
-@media screen and (max-width: 540px) {
-  .acContainer {
-    width: 300px;
-  }
 }
 
 .resultContainer {
