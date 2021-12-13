@@ -2,9 +2,23 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+1.  Design is completely responsive to desktop, mobile, iPad and tablet.
+2.  Unit tests are completed.
+3.  Autocomplete component is configurable from `autocomplete.config.ts` including defining a custom theme.
+4.  If maxResults value is not passed, it is taken as 30 by default.
+5.  If no value is passed for inputDebounceTime, it is taken as 300 by default. This is the time after which appplication will start search once user has stopped typing.
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `git clone`
+
+You will have to download or clone the repo.
+
+### `npm install`
+
+Run `npm install` inside the repo to get the dependencies.
 
 ### `npm start`
 
