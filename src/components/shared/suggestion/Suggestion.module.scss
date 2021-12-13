@@ -1,0 +1,24 @@
+.searchResult {
+  overflow: auto;
+  max-height: 300px;
+}
+
+.searchResultList {
+  padding: 5px 5px 5px 18px;
+  cursor: default;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  &:hover {
+    background-color: #fff;
+  }
+}
+
+.searchIcon {
+  fill: #696969;
+  margin-top: 5px;
+  margin-left: 12px;
+  width: 21px;
+}
