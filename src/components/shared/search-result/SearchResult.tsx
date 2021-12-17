@@ -14,7 +14,7 @@ const SearchResult = ({ result, searchText }: any) => {
     let modifiedText = text;
     let _highlights = highlight.split(" ");
     _highlights.map((_highlight) => {
-      modifiedText = modifiedText.replaceAll(
+      modifiedText = modifiedText?.replaceAll(
         new RegExp(`${_highlight}`, "gi"),
         `<b>${_highlight}</b>`
       );
@@ -25,6 +25,7 @@ const SearchResult = ({ result, searchText }: any) => {
     <>
       {result?.Page && result?.PageSize && result?.TotalNumberOfResults ? (
         <div
+          data-testid="search-result"
           className={searchResultStyle.resultCount}
         >{`Showing ${result.Page}-${result.PageSize} of ${result.TotalNumberOfResults} results`}</div>
       ) : null}

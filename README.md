@@ -10,15 +10,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
-
 ### `git clone`
 
-You will have to download or clone the repo.
+Please close the repo - `https://github.com/tecLove/gvt-ac-gui`
+
+i) For the assignment exactly matching user story criteria, please checkout/ download the tag v1.0.0
+ii) For a little improvement over mentioned user story, please checkout/ download the tag v1.0.1
 
 ### `npm install`
 
 Run `npm install` inside the repo to get the dependencies.
+
+In the project directory, you can run:
 
 ### `npm start`
 

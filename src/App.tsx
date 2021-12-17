@@ -84,9 +84,9 @@ const App = () => {
   const handleOnClear = useCallback(() => {
     console.log("Input field is cleared");
     setValue("");
-    setSearchResult(() => {
-      return {};
-    });
+    // setSearchResult(() => {
+    //   return {};
+    // });
   }, []);
 
   return (

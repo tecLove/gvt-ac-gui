@@ -246,6 +246,11 @@ const AutoComplete = ({
     console.log("element is", e);
   };
 
+  const handleClear = () => {
+    inputRef.current?.focus();
+    if (onClear) onClear();
+  };
+
   return (
     <>
       <div
@@ -301,7 +306,7 @@ const AutoComplete = ({
                   style={{ cursor: "pointer" }}
                   onClick={() => {
                     setSearchText("");
-                    if (onClear) onClear();
+                    handleClear();
                   }}
                 />
               ) : null}
